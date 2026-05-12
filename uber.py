@@ -30,7 +30,6 @@ col1, col2 = st.columns(2)
 
 with col1:
 	if st.checkbox("Show Raw Data"):
-		st.subheader("Raw Data")
 		st.write(data)
 
 with col2:
