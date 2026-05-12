@@ -29,8 +29,9 @@ data_load_state.text("Loading Data Done!")
 col1, col2 = st.columns(2)
 
 with col1:
-	st.subheader("Raw Data")
-	st.write(data)
+	if st.checkbox("Show Raw Data"):
+		st.subheader("Raw Data")
+		st.write(data)
 
 with col2:
 	st.subheader("Num Pickups Per Hour")
