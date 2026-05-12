@@ -24,12 +24,16 @@ data_load_state=st.text("Loading Data...")
 data=load_data(10000)
 data_load_state.text("Loading Data Done!")
 
-st.subheader("Raw Data")
-st.write(data)
+col1, col2 = st.columns(2)
 
-st.subheader("Num Pickups Per Hour")
-hist_values = np.histogram(data[DATE_COLUMN].dt.hour, bins=24, range=(0,24))[0]
-st.bar_chart(hist_values)
+with col1:
+	st.subheader("Raw Data")
+	st.write(data)
+
+with col2:
+	st.subheader("Num Pickups Per Hour")
+	hist_values = np.histogram(data[DATE_COLUMN].dt.hour, bins=24, range=(0,24))[0]
+	st.bar_chart(hist_values)
 
 # Some number in the range 0-23
 hour_to_filter = st.slider('hour', 0, 23, 17)
